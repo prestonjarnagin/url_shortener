@@ -47,6 +47,15 @@ defmodule UrlWeb.URLControllerTest do
     end
   end
 
+  describe "redirect short url" do
+    test "redirects", %{conn: conn} do
+      {:ok, url} = Shorteners.create_url(@create_attrs)
+      short_url = Base62.encode(url.id)
+      conn = get(conn, Routes.url_path(conn, :short_url_redirect, short_url))
+      assert conn.status == 302
+    end
+  end
+
   describe "update url" do
     setup [:create_url]
 
