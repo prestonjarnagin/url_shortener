@@ -50,9 +50,13 @@ defmodule Url.Shorteners do
 
   """
   def create_url(attrs \\ %{}) do
+    {:ok, url} =
     %URL{}
     |> URL.changeset(attrs)
     |> Repo.insert()
+
+    Url.Cache.insert_url(url)
+    {:ok, url}
   end
 
   @doc """

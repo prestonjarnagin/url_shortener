@@ -11,9 +11,11 @@ defmodule Url.Application do
       # Start the Ecto repository
       Url.Repo,
       # Start the endpoint when the application starts
-      UrlWeb.Endpoint
+      UrlWeb.Endpoint,
       # Starts a worker by calling: Url.Worker.start_link(arg)
       # {Url.Worker, arg},
+      {Url.Cache, []},
+      {ConCache, [name: :cache, ttl_check_interval: false]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

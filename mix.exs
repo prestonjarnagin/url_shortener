@@ -41,7 +41,8 @@ defmodule Url.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:base62, "~> 1.2"}
+      {:base62, "~> 1.2"},
+      {:con_cache, "~> 0.13"}
     ]
   end
 
