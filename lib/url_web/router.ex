@@ -7,5 +7,7 @@ defmodule UrlWeb.Router do
 
   scope "/api", UrlWeb do
     pipe_through :api
+
+    resources "/urls", URLController, only: [:create, :show, :delete]
   end
 end
