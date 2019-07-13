@@ -13,5 +13,6 @@ defmodule Url.Shorteners.URL do
     url
     |> cast(attrs, [:url])
     |> validate_required([:url])
+    |> unique_constraint(:url)
   end
 end

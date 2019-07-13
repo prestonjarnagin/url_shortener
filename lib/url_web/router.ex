@@ -9,5 +9,6 @@ defmodule UrlWeb.Router do
     pipe_through :api
 
     resources "/urls", URLController, only: [:create, :show, :delete]
+    get "/redirect/:short_url", URLController, :short_url_redirect
   end
 end

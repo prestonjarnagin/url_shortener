@@ -7,11 +7,14 @@ defmodule UrlWeb.URLView do
   end
 
   def render("show.json", %{url: url}) do
+    IO.inspect(url)
     %{data: render_one(url, URLView, "url.json")}
   end
 
   def render("url.json", %{url: url}) do
+    short = Base62.encode(url.id)
     %{id: url.id,
-      url: url.url}
+      url: url.url,
+      short: short}
   end
 end
