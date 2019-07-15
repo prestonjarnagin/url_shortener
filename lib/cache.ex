@@ -17,7 +17,7 @@ defmodule Url.Cache do
   end
 
   def handle_call({:insert_url, url}, _from, state) do
-    ConCache.put(:cache, url.id, url.url) |> IO.inspect()
+    ConCache.put(:cache, url.id, url.url)
     {:reply, {:ok, url}, state}
   end
 
