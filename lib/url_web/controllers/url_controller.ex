@@ -43,7 +43,7 @@ defmodule UrlWeb.URLController do
 
   def short_url_redirect(conn, %{"short_url" => short_url}) do
     {:ok, id} = Base62.decode(short_url)
-    url = Shorteners.get_url!(id)
-    redirect(conn, external: url.url)
+    url = Url.Cache.get_url(id)
+    redirect(conn, external: url)
   end
 end
